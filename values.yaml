@@ -1,2 +1,2 @@
 config:
-  message: "Hello from ConfigMap v2"
+  message: "Hello from ConfigMap v3"
