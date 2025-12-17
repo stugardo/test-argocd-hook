@@ -4,9 +4,7 @@ metadata:
   name: test-job-{{ now | date "20060102-150405" }}
   namespace: {{ .Release.Namespace }}
   annotations:
-    # ArgoCD hook: This job will be created/recreated during the Sync phase
     argocd.argoproj.io/hook: Sync
-    # Delete the job before creating a new one
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   ttlSecondsAfterFinished: 300
