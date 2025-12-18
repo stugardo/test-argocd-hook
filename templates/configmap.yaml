@@ -3,7 +3,5 @@ kind: ConfigMap
 metadata:
   name: test-config
   namespace: {{ .Release.Namespace }}
-  annotations:
-    argocd.argoproj.io/hook: PreSync
 data:
   message: {{ .Values.config.message | quote }}
