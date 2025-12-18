@@ -16,8 +16,7 @@ When deploying applications with ArgoCD, updating a ConfigMap doesn't automatica
 ## Solution
 
 Use **ArgoCD hooks** to ensure proper resource management:
-- `argocd.argoproj.io/hook: PreSync` on the ConfigMap - ensures it's created first
-- `argocd.argoproj.io/hook: Sync` on the Job - ensures it's created during sync
+- `argocd.argoproj.io/hook: PostSync` ensures the Job is created after the application has been fully synced and deployed.
 - `argocd.argoproj.io/hook-delete-policy: BeforeHookCreation` on the Job - deletes the old Job before creating a new one (the job should have the same name!)
 
 ## Prerequisites
